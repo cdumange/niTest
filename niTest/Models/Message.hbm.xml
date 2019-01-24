@@ -1,0 +1,25 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<hibernate-mapping 
+  xmlns="urn:nhibernate-mapping-2.2" 
+  assembly="niTest"
+  namespace="niTest.Models" >
+  <class name="Message" lazy="false">
+    <id name="id">
+      <column name="id"/>
+      <generator class="native"/>
+    </id>
+    <property name="dateCreation"/>
+    <property name="dateModif">
+      <column name="dateMAJ"/>
+    </property>
+
+    <property name="origine" />
+
+    <property name="typeMessage"/>
+
+    <property name="messageStr">
+      <column name="message" />
+    </property>
+  </class>
+</hibernate-mapping>
+
