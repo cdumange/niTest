@@ -10,10 +10,10 @@ namespace niTest.Factories
 {
     interface IMessageFactory
     {
-        void Add(Message message);
+        bool Add(Message message);
         void Update(Message message);
         Message GetById(int id);
-        List<Message> GetAllMessage();
-        List<Message> Search(JObject filter);
+        IEnumerable<Message> GetAllMessage();
+        IEnumerable<Message> Search(JObject filter);
     }
 }

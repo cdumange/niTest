@@ -4,16 +4,17 @@ using System.Linq;
 using System.Web;
 using Newtonsoft.Json.Linq;
 using niTest.Models;
+using niTest.Lib;
 
 namespace niTest.Factories
 {
     public class MessageFactory : IMessageFactory
     {
-        void IMessageFactory.Add(Message message)
+        bool IMessageFactory.Add(Message message)
         {
             using (var session = NHibernateHelper.GetCurrentSession())
             {
-                session.Save(message);
+                return ((int)session.Save(message)) > 0;
             }
         }
 
@@ -31,18 +32,22 @@ namespace niTest.Factories
                 return null;
             }
         }
-
-        List<Message> IMessageFactory.Search(JObject filter)
+        /// <summary>
+        /// Methode receiving a json filter and transforming it to a NHibernate filter
+        /// </summary>
+        /// <param name="filter"></param>
+        /// <returns></returns>
+        IEnumerable<Message> IMessageFactory.Search(JObject filter)
         {
-            throw new NotImplementedException();
+            return FilterBuilder<Message>.Search(filter);
         }
 
-        List<Message> IMessageFactory.GetAllMessage()
+        IEnumerable<Message> IMessageFactory.GetAllMessage()
         {
-            List<Message> list = null;
+            IEnumerable<Message> list = null;
             using (var session = NHibernateHelper.GetCurrentSession())
             {
-                list = session.Query<Message>().ToList();
+                list = session.Query<Message>();
             }
 
             return list;
@@ -50,7 +55,10 @@ namespace niTest.Factories
 
         void IMessageFactory.Update(Message message)
         {
-            throw new NotImplementedException();
+            using (var session = NHibernateHelper.GetCurrentSession())
+            {
+                session.Update(message);
+            }
         }
     }
 }
