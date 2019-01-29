@@ -1,8 +1,8 @@
 ﻿<?xml version="1.0" encoding="utf-8" ?>
 <hibernate-mapping 
   xmlns="urn:nhibernate-mapping-2.2" 
-  assembly="niTest"
-  namespace="niTest.Models" >
+  assembly="ComModel"
+  namespace="ComModel" >
   <class name="Message" lazy="false">
     <id name="id">
       <column name="id"/>

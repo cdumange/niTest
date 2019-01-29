@@ -6,7 +6,7 @@ using System.Reflection;
 
 using NHibernate;
 using NHibernate.Cfg;
-using niTest.Models;
+using ComModel;
 
 namespace niTest
 {

@@ -2,7 +2,7 @@
 using System.Collections.Generic;
 using System.Web;
 using System.Web.Http;
-using niTest.Models;
+using ComModel;
 using System.Net;
 using System.Net.Http;
 using Newtonsoft.Json;

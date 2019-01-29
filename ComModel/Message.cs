@@ -5,7 +5,7 @@ using System.Web;
 
 using Newtonsoft.Json.Linq;
 
-namespace niTest.Models
+namespace ComModel
 {
     public class Message
     {

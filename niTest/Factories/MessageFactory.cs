@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Web;
 using Newtonsoft.Json.Linq;
-using niTest.Models;
+using ComModel;
 using niTest.Lib;
 
 namespace niTest.Factories

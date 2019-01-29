@@ -5,7 +5,7 @@ using System.Web;
 using Newtonsoft.Json.Linq;
 using System.Reflection;
 using NHibernate;
-using niTest.Models;
+using ComModel;
 using NHibernate.Criterion;
 
 namespace niTest.Lib
